@@ -4,7 +4,7 @@ My personal blog powered by [Hexo](https://github.com/hexojs/hexo) with [NexT](h
 ## Installation
 ```bash
 $ npm install hexo-cli -g
-$ git https://github.com/L34p/blog.git
+$ git clone https://github.com/L34p/blog.git
 $ cd blog
 $ npm install
 ```
