@@ -31,7 +31,7 @@ Sensitive 명령어는 시스템의 resource를 변경하는 등 시스템의 �
 
 ## 가상화 가능한 ISA 의 조건
 ![virtualization-requirements](https://adriancolyer.files.wordpress.com/2016/02/virtualization-requirements.png "출처: https://blog.acolyer.org/2016/02/19/formal-requirements-for-virtualizable-third-generation-architectures")
-어떤 아키텍처가 가상화를 지원하기 위해서는 Guest OS가 시스템 resource를 변경하거나 하는 sensitive 명령어를 수행하려고 할 때 가상머신 모니터가 알아챌 필요가 있습니다. 그래야 가상머신 모니터가 해당 resource request에 대해 적절히 처리할 수 있기 때문이죠. 그러므로 모든 sensitive 명령어는 trap을 일으켜서 가상머신 모니터가 해당 상황을 적절히 처리할 수 있도록 해야 합니다. 즉 다시 말하면, **모든 sensitive 명령어는 privileged 명령어 이어야 합니다**.
+어떤 아키텍처가 가상화를 지원하기 위해서는 Guest OS가 시스템 resource를 변경하거나 하는 sensitive 명령어를 수행하려고 할 때 가상머신 모니터가 알아챌 수 있어야 합니다. 그래야 가상머신 모니터가 해당 resource request에 대해 적절히 처리할 수 있기 때문이죠. 그러므로 모든 sensitive 명령어는 trap을 일으켜서 가상머신 모니터가 해당 상황을 적절히 처리할 수 있도록 해야 합니다. 즉 다시 말하면, **모든 sensitive 명령어는 privileged 명령어 이어야 합니다**.
 
 ## Intel x86 은 가상화 가능한 ISA일까?
 결론적으로는 처음 부분에서 얘기했듯이, x86 아키텍처는 가상화 가능 조건을 충족시키지 못 합니다. 즉 x86 아키텍처에는 **sensitive 명령어이지만 privileged 명령어가 아닌 명령어들**이 있다는 얘기이죠.
