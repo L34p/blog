@@ -41,7 +41,7 @@ Sensitive 명령어는 시스템의 resource를 변경하는 등 시스템의 �
 ## POPF 명령어
 POPF 명령어는 스택에서 값을 POP 하여 EFLAGS에 넣는 명령어입니다. 그런데 EFLAGS에는 Interrupt Flag (IF) 가 있고 이 값은 CPL (Current Privilege Level) 이 0 즉 supervisor mode (ring 0) 일 때에만 값이 설정됩니다. CPL 이 0 이 아닌 경우 값이 설정되지 않고 무시됩니다. (여기서 중요한 점은 user 모드에서 실행되어도 trap이 일어나지 않습니다.) POPF 명령어는 Interrupt Flag를 설정하여 시스템의 상태를 바꿀 수 있고 user 모드인지 supervisor 모드인지에 따라 작동 방식이 달라지므로 sensitive 명령어입니다. 하지만 user 모드에서 실행하여도 trap이 일어나지 않으므로 privileged 명령어는 아니지요. 그러므로 POPF 명령어는 가상화 가능 조건을 만족시키지 못하고 따라서 x86 아키텍처는 가상화 가능 조건을 만족시키지 못한다고 할 수 있습니다.
 
-이 POPF 명령어는 OS가 인터럽트 상태를 바꾸기 위해 사용합니다. 그리고 OS는 supervisor 모드 즉, ring 0에서 수행된다고 가정됩니다. 하지만 이때 하드웨어 가상화 기술이 없는 가상머신의 경우 Guest OS가 ring 0에서 수행되지 않아 문제가 발생되게 됩니다. (보통 ring deprivileging이라고 알려진 문제이지요) 가상머신의 Guest OS 가 POPF를 호출하면 OS이지만 ring 0에서 수행되고 있지 않으므로 IF 가 설정되지 않고 그냥 무시되게 됩니다. 여기서 올바르게 작동하려면 trap이 발생하여 가상머신모니터가 적절히 처리해주어야 합니다.
+이 POPF 명령어는 OS가 인터럽트 상태를 바꾸기 위해 사용합니다. 그리고 OS는 supervisor 모드 즉, ring 0에서 수행된다고 가정됩니다. 하지만 이때 하드웨어 가상화 기술이 없는 가상머신의 경우 Guest OS가 ring 0에서 수행되지 않아 문제가 발생되게 됩니다. 가상머신의 Guest OS 가 POPF를 호출하면 OS이지만 ring 0에서 수행되고 있지 않으므로 IF 가 설정되지 않고 그냥 무시되게 됩니다. 여기서 올바르게 작동하려면 trap이 발생하여 가상머신 모니터가 적절히 처리해주어야 합니다.
 
 ## References
 1. [Formal Requirements for Virtualizable Third Generation Architectures](http://dl.acm.org/citation.cfm?id=361073)
