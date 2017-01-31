@@ -15,10 +15,9 @@ $ hexo new <post name>
 $ vi source/_posts/<post name>
 ```
 
-## Test on local server
+## Test on local
 ```bash
-$ hexo generate
-$ hexo serve
+$ ./run.sh
 ```
 
 ## Publish to web
