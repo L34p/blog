@@ -10,6 +10,8 @@ tags:
 
 ## Motivation
 이번 포스팅에서는 인텔의 하드웨어 가상화 지원 기술인 VT-x 에 대해 다뤄보려고 합니다. [이전 포스팅](/blog/2017/01/05/What-is-virtualizable-ISA/) 에서 다뤘듯이 인텔의 x86 아키텍처는 [**포펙과 골드버그의 가상화 요구**](https://en.wikipedia.org/wiki/Popek_and_Goldberg_virtualization_requirements)를 만족하지 못해 가상머신을 추가하기가 어려웠습니다. 하드웨어적인 가상화 지원이 나오기 이전에는 이러한 문제점을 해결하기 위해 아래와 같은 소프트웨어적인 해결책이 제시되었습니다.  
+
+<!-- more -->
   
 - ***Binary Translation***
   - Dynamic 하게 실행도중 guest OS의 바이너리를 수정, 가상화에 문제가 되는 명령어들을 변환한 후 실행
