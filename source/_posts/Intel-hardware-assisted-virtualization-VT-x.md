@@ -75,7 +75,7 @@ VMCS 는 가상화 환경을 지원하기 위해 새로 추가된 자료구조 �
 ## Summary
 ![Intel-VT-x](/blog/img/Intel_VT-x.png)
 
-결국 간단히 요약하면 VT-x는 guest OS의 실행을 위해 별개의 privilege ring 을 가지는 새로운 CPU 모드를 추가하여 guest OS가 ring 0 에서 실행될 수 있도록 하고, VMM의 관여가 필요 없는 명령어 및 이벤트는 guest OS가 하드웨어를 통해 직접 바로 처리할 수 있도록 하며 VMM의 관여가 필요한 경우 VMX transition (trap) 을 통해 제어하여 가상화를 지원한다고 할 수 있을 것 같습니다.
+결국 간단히 요약하면 VT-x는 guest OS의 실행을 위해 별개의 privilege ring 을 가지는 새로운 CPU 모드를 추가하여 guest OS가 ring 0 에서 실행될 수 있도록 하고, VMM의 관여가 필요 없는 명령어 및 이벤트는 하드웨어를 통해 직접 바로 처리될 수 있도록 하며 VMM의 관여가 필요한 경우 VMX transition (trap) 을 통해 제어하여 가상화를 지원한다고 할 수 있을 것 같습니다.
   
 ## References
 1. [Intel Virtualization Technology: Hardware Support for Efficient Processor Virtualization](http://www.intel.com/content/dam/www/public/us/en/documents/research/2006-vol10-iss-3-intel-technology-journal.pdf)
