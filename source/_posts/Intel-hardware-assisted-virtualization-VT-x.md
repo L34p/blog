@@ -41,7 +41,7 @@ tags:
     - 몇 가지 특정 명령어 들은 VMX non-root 모드에서 실행될 수 없으며 VMX root 모드에서 실행되도록 VM exit이 강제됨  
   
 ### VMX transition (VM entry and VM exit)
-![VMX-Transition](/blog/img/VMM-LifeCycle.png "출처: Intel 64 and IA-32 Architectures Software Developer’s Manual, Volume 3C")
+{% asset_img VMM-LifeCycle.png "출처: Intel 64 and IA-32 Architectures Software Developer’s Manual, Volume 3C" %}
 
 또한 VT-x 에서는 VMX root 모드와 VMX non-root 모드 사이의 전환을 위해 VM entry 와 VM exit 이라는 새로운 transition 이 추가됩니다. 이러한 VMX transition 은 이후에 설명할 VMCS (Virtual-Machine Control Structure) 라는 새로운 자료구조에 의해 관리됩니다.  
   
@@ -73,7 +73,7 @@ VMCS 는 가상화 환경을 지원하기 위해 새로 추가된 자료구조 �
     - 이 필드를 보고 VMM 에서는 VM exit 이 일어난 이유에 따라 적절한 처리가 가능함
     
 ## Summary
-![Intel-VT-x](/blog/img/Intel_VT-x.png)
+{% asset_img Intel_VT-x.png %}
 
 결국 간단히 요약하면 VT-x는 guest OS의 실행을 위해 별개의 privilege ring 을 가지는 새로운 CPU 모드를 추가하여 guest OS가 ring 0 에서 실행될 수 있도록 하고, VMM의 관여가 필요 없는 명령어 및 이벤트는 하드웨어를 통해 직접 바로 처리될 수 있도록 하며 VMM의 관여가 필요한 경우 VMX transition (trap) 을 통해 제어하여 가상화를 지원한다고 할 수 있을 것 같습니다.
   
